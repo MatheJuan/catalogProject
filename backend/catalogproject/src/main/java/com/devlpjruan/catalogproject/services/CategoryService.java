@@ -1,11 +1,11 @@
 package com.devlpjruan.catalogproject.services;
 
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,9 +22,9 @@ public class CategoryService {
 	private CategoryRepository repository;
 	
 	@Transactional(readOnly = true)
-	public List<CategoryDTO> findAll(){
-		List<Category> list = repository.findAll();
-		return list.stream().map(x -> new CategoryDTO(x)).collect(Collectors.toList());
+	public Page<CategoryDTO> findAll(PageRequest pageRequest){
+		Page<Category> list = repository.findAll(pageRequest);
+		return list.map(x -> new CategoryDTO(x));
 	}
 
 	@Transactional(readOnly = true)
@@ -53,7 +53,6 @@ public class CategoryService {
 			
 		}
 	}
-
 	public void delete(Long id) {
 		if (!repository.existsById(id)) {
 			throw new ResourceNotFoundException("Recurso não encontrado");
@@ -64,6 +63,13 @@ public class CategoryService {
 	    	catch (DataIntegrityViolationException e) {
 	        	throw new DatabaseException("Falha de integridade referencial");
 	   	}
+	}
+
+	public Page<CategoryDTO> findAllPage(PageRequest pageRequest) {
+		
+		
+
+		return null;
 	}
 	
 	
