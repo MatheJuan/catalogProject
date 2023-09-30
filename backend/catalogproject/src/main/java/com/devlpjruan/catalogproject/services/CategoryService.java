@@ -64,13 +64,4 @@ public class CategoryService {
 	        	throw new DatabaseException("Falha de integridade referencial");
 	   	}
 	}
-
-	public Page<CategoryDTO> findAllPage(PageRequest pageRequest) {
-		
-		
-
-		return null;
-	}
-	
-	
 }
