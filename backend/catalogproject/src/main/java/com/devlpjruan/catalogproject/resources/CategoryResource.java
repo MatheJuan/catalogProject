@@ -22,14 +22,12 @@ import com.devlpjruan.catalogproject.services.CategoryService;
 @RestController
 @RequestMapping(value="/categories")
 public class CategoryResource {
-	
 	@Autowired
 	private CategoryService service;
 	
 	@GetMapping
 	public ResponseEntity<Page<CategoryDTO>> findAll(Pageable pageable){
 		Page<CategoryDTO> list = service.findAll(pageable);
-		
 		return ResponseEntity.ok().body(list);
 	}
 	
@@ -52,6 +50,7 @@ public class CategoryResource {
 		dto = service.update(id, dto);
 		return ResponseEntity.ok().body(dto);
 	}
+	
 	@DeleteMapping(value="/{id}")
 	public ResponseEntity<Void> delete(@PathVariable Long id){
 		service.delete(id);
