@@ -19,6 +19,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.devlpjruan.catalogproject.DTO.UserDTO;
 import com.devlpjruan.catalogproject.DTO.UserInsertDTO;
 import com.devlpjruan.catalogproject.services.UserService;
+
+import jakarta.validation.Valid;
  
 @RestController
 @RequestMapping(value="/User")
@@ -40,7 +42,7 @@ public class UserResource {
 		return ResponseEntity.ok().body(dto);
 	} 
 	@PostMapping
-	public ResponseEntity<UserDTO> insert(@RequestBody UserInsertDTO dto){
+	public ResponseEntity<UserDTO> insert(@Valid @RequestBody UserInsertDTO dto){
 		UserDTO newDto = service.insert(dto);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
 				.buildAndExpand(newDto).toUri();
@@ -48,7 +50,7 @@ public class UserResource {
 	}
 	
 	@PutMapping(value="/{id}")
-	public ResponseEntity<UserDTO> updateUser(@PathVariable Long id,@RequestBody UserDTO dto){
+	public ResponseEntity<UserDTO> updateUser(@PathVariable Long id,@Valid @RequestBody UserDTO dto){
 		dto = service.update(id, dto);
 		return ResponseEntity.ok().body(dto);
 	}

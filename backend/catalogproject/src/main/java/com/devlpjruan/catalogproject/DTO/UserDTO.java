@@ -5,10 +5,15 @@ import java.util.Set;
 
 import com.devlpjruan.catalogproject.entities.User;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+
 public class UserDTO {
 	private Long id;
+	@NotBlank(message = "Campo obrigatório")
 	private String firstName;
 	private String lastName;
+	@Email(message = "Por Favor entrar com email válido.")
 	private String email;
 	private String password;
 	

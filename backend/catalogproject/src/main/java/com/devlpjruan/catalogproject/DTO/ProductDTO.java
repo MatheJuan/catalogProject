@@ -8,13 +8,25 @@ import java.util.Set;
 import com.devlpjruan.catalogproject.entities.Category;
 import com.devlpjruan.catalogproject.entities.Product;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PastOrPresent;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.Size;
+
+
+
 public class ProductDTO {
 
 	private Long id;
+	@Size(min = 5, max = 60)
+	@NotBlank(message = "Campo requerido.")
 	private String name;
+	@NotBlank(message = "Campo requerido.")
 	private String description;
+	@Positive(message = "Preço deve ser positivo.")
 	private Double price;
 	private String imgUrl;
+	@PastOrPresent(message="A data do produto não pode ser futura.")
 	private Instant date;
 
 	private List<CategoryDTO> categories = new ArrayList<>();
