@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.devlpjruan.catalogproject.DTO.RoleDTO;
 import com.devlpjruan.catalogproject.DTO.UserDTO;
 import com.devlpjruan.catalogproject.DTO.UserInsertDTO;
+import com.devlpjruan.catalogproject.DTO.UserUpdateDTO;
 import com.devlpjruan.catalogproject.entities.Role;
 import com.devlpjruan.catalogproject.entities.User;
 import com.devlpjruan.catalogproject.exceptions.DatabaseException;
@@ -56,7 +57,7 @@ public class UserService {
 		return new UserDTO(entity);
 	}
 	@Transactional
-	public UserDTO update(Long id, UserDTO dto) {
+	public UserDTO update(Long id, UserUpdateDTO dto) {
 		try {
 			User entity = repository.getReferenceById(id);
 			DtoToEntity(dto, entity);
