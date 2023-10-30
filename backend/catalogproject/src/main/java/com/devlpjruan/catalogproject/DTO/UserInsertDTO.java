@@ -1,5 +1,8 @@
 package com.devlpjruan.catalogproject.DTO;
 
+import com.devlpjruan.catalogproject.services.validation.UserInsertValid;
+
+@UserInsertValid
 public class UserInsertDTO extends UserDTO{
 	
 	private String authority;
