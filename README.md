@@ -2,7 +2,8 @@
 ## Sobre o Projeto
 O Catalog Online é uma aplicação web desenvolvida com o propósito de oferecer uma listagem paginada de produtos acessível aos usuários públicos,
 além de proporcionar uma área administrativa privada para o gerenciamento CRUD (Create, Read, Update, Delete) por perfis autenticados.  
-O principal objetivo deste projeto é servir como um ambiente de estudo para testes automatizados e a prática de TDD (Test Drive Development). 
+O principal objetivo deste projeto é servir como um ambiente de estudo para testes automatizados.  
+
 ## Modelo Conceitual
 ![model](https://github.com/MatheJuan/assets/blob/main/Model_CatalogProject.png)
 
@@ -10,18 +11,22 @@ O principal objetivo deste projeto é servir como um ambiente de estudo para tes
 * Listagem paginada de produtos para usuários públicos.
 * Área administrativa com operações CRUD para gerenciamento de produtos.
  
-## Tecnologias, Boas práticas e Padrões
-Durante o desenvolvimento, foram utilizadas as seguintes tecnologias e práticas:
+## Tecnologias
+Durante o desenvolvimento, foram utilizadas as seguintes tecnologias:
 
 * Banco de dados H2
 * Implementação de TDD com Mockito
 * Spring Security
-* Exception Handling 
-* OAuth2 e JWT  
-* Testes automatizados 
-* Exception Handling
-* Data transfer Object(DTO)
-* 
+* OAuth2
+* Json Web Token (JWT)
+* Hibernate
+* JPA
+* JUnit 5
+
+## Executando testes com JUnit  
+ Os testes automatizados estão no caminho:  
+https://github.com/MatheJuan/catalogProject/tree/main/backend/catalogproject/src/test/java/com/devlpjruan/catalogproject
+
 # Como Executar  
 Certifique-se de ter o Java e o Maven instalados em sua máquina.
 Para executar o projeto localmente, siga as instruções abaixo:  
@@ -43,3 +48,6 @@ java -jar target/catalogproject.jar
 ./mvnw spring-boot:run
 
 ```
+## AUTOR
+Juan Matheus  
+https://www.linkedin.com/in/ruan-matheus-446ab6285/
