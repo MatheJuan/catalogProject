@@ -50,4 +50,4 @@ java -jar target/catalogproject.jar
 ```
 ## AUTOR
 Juan Matheus  
-https://www.linkedin.com/in/ruan-matheus-446ab6285/
+www.linkedin.com/in/jruan-matheus
